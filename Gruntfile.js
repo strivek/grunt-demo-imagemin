@@ -4,18 +4,17 @@ module.exports = function(grunt) {
     grunt.initConfig({
         imagemin: {
             test: {
-            	options:{
-            		optimizationLevel:6 
-            	},
-                files:[{
+                options: {
+                    optimizationLevel: 6
+                },
+                files: [{
                     expand: true, //是否可以自动创建文件夹
                     cwd: "src/images",
-                    src: "*.{gif,GIF,jpg,JPG,png,PNG}",
-                    dest: "dist/images"
+                    src: "{*,**/*}.{gif,GIF,jpg,JPG,png,PNG}",
+                    dest: "dist/"
                 }]
             }
         }
     })
-    grunt.registerTask("test",['imagemin:test']);
-
+    grunt.registerTask("test", ['imagemin:test']);
 }
